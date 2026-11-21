@@ -29,7 +29,7 @@ export function Sparkline({
       viewBox={`0 0 ${width} ${height}`}
       className={className}
       role="img"
-      aria-label="Trend sparkline"
+      aria-label="نمودار روند"
     >
       <polygon points={area} fill="rgba(59,130,246,0.10)" />
       <polyline

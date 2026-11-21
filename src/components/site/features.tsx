@@ -20,42 +20,42 @@ interface Feature {
 const features: Feature[] = [
   {
     icon: BookOpen,
-    title: "Trading Journal",
+    title: "ژورنال معاملاتی",
     description:
-      "Log every trade with entries, exits, size and notes. A structured record of every decision you make.",
+      "ثبت هر معامله با نقطه ورود، خروج، حجم و یادداشت‌ها؛ سند ساختاریافته‌ای از هر تصمیم شما.",
   },
   {
     icon: TrendingUp,
-    title: "Performance Analytics",
+    title: "تحلیل عملکرد",
     description:
-      "Win rate, drawdown, expectancy and equity curve — the metrics professionals actually watch.",
+      "نرخ برد، افت سرمایه، امید ریاضی و منحنی سرمایه — همان معیارهایی که حرفه‌ای‌ها دنبال می‌کنند.",
   },
   {
     icon: FileUp,
-    title: "Statement Upload",
+    title: "بارگذاری صورت‌حساب",
     description:
-      "Drop in your broker statements and let the platform organize your history automatically.",
+      "صورت‌حساب‌های کارگزاری را بارگذاری کنید؛ پلتفرم تاریخچه شما را به‌صورت خودکار مرتب می‌کند.",
   },
   {
     icon: Sparkles,
-    title: "AI Ready",
+    title: "آمادهٔ هوش مصنوعی",
     description:
-      "The data model and UI are prepared for AI analysis from day one — no redesign needed later.",
-    badge: "Coming soon",
+      "مدل داده و رابط کاربری از روز اول برای تحلیل هوش مصنوعی آماده است — بعداً هیچ بازطراحی‌ای لازم نیست.",
+    badge: "به‌زودی",
   },
   {
     icon: Bell,
-    title: "Price Alerts",
+    title: "هشدار قیمت",
     description:
-      "Set watchlists and get notified when instruments hit the levels that matter to your plan.",
-    badge: "Future",
+      "واچ‌لیست بسازید و وقتی نمادها به سطوح مهم پلن معاملاتی‌تان رسیدند مطلع شوید.",
+    badge: "آینده",
   },
   {
     icon: Bot,
-    title: "Agent Assistant",
+    title: "دستیار ایجنت",
     description:
-      "A trading agent that reviews your journal and suggests improvements — reserved on the roadmap.",
-    badge: "Future",
+      "ایجنتی که ژورنال شما را مرور می‌کند و پیشنهادهای بهبود می‌دهد — در نقشه راه رزرو شده است.",
+    badge: "آینده",
   },
 ];
 
@@ -64,9 +64,9 @@ export function Features() {
     <section id="features" className="scroll-mt-16 border-t border-white/6">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
-          eyebrow="Features"
-          title="Everything a serious trader needs"
-          lede="Version 1 ships with the journal core. The architecture already reserves space for AI, alerts and agents — so the product grows without growing pains."
+          eyebrow="امکانات"
+          title="هر آنچه یک معامله‌گر جدی نیاز دارد"
+          lede="نسخه ۱ با هسته ژورنال عرضه می‌شود. معماری از الان جای هوش مصنوعی، هشدارها و ایجنت‌ها را رزرو کرده — تا محصول بدون دردسر بزرگ شود."
         />
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

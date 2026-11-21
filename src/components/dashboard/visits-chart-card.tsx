@@ -7,8 +7,8 @@ import { visitsLast30Days } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const ranges = [
-  { key: "7d", label: "7 days" },
-  { key: "30d", label: "30 days" },
+  { key: "7d", label: "۷ روز" },
+  { key: "30d", label: "۳۰ روز" },
 ] as const;
 
 export function VisitsChartCard({ className }: { className?: string }) {
@@ -21,16 +21,16 @@ export function VisitsChartCard({ className }: { className?: string }) {
       <CardHeader>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <CardTitle>Website Visits</CardTitle>
+            <CardTitle>بازدیدهای وب‌سایت</CardTitle>
             <CardDescription>
-              {range === "7d" ? "Last 7 days" : "Last 30 days"} · daily unique
-              visits
+              {range === "7d" ? "۷ روز اخیر" : "۳۰ روز اخیر"} · بازدید یکتای
+              روزانه
             </CardDescription>
           </div>
           <div
             className="flex rounded-lg border border-white/10 bg-white/5 p-0.5"
             role="tablist"
-            aria-label="Chart range"
+            aria-label="بازه نمودار"
           >
             {ranges.map((option) => (
               <button

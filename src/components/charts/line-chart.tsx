@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { faDigits } from "@/lib/utils";
 
 /**
  * Minimal area/line chart — pure SVG, deliberately dependency-free.
@@ -48,7 +49,7 @@ export function LineChart({
       viewBox={`0 0 ${width} ${height}`}
       className={className}
       role="img"
-      aria-label="Visits line chart"
+      aria-label="نمودار خطی بازدیدها"
     >
       <defs>
         <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
@@ -77,7 +78,7 @@ export function LineChart({
               className="fill-zinc-600"
               fontSize="10"
             >
-              {Math.round(value)}
+              {faDigits(Math.round(value))}
             </text>
           </g>
         );

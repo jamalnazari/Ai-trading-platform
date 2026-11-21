@@ -16,43 +16,43 @@ interface Tier {
 
 const tiers: Tier[] = [
   {
-    name: "Starter",
+    name: "استارتر",
     price: "$0",
-    period: "forever",
-    description: "For traders building the journaling habit.",
-    cta: { label: "Get started", href: "/login", variant: "outline" },
+    period: "برای همیشه",
+    description: "برای معامله‌گرانی که عادت ژورنال‌نویسی را می‌سازند.",
+    cta: { label: "شروع کنید", href: "/login", variant: "outline" },
     items: [
-      "Trading journal",
-      "Up to 100 trades / month",
-      "Performance dashboard",
-      "CSV statement upload",
+      "ژورنال معاملاتی",
+      "تا ۱۰۰ معامله در ماه",
+      "داشبورد عملکرد",
+      "بارگذاری صورت‌حساب CSV",
     ],
   },
   {
-    name: "Pro",
+    name: "حرفه‌ای",
     price: "$19",
-    period: "per month",
-    description: "For traders who review every week.",
+    period: "ماهانه",
+    description: "برای معامله‌گرانی که هر هفته مرور می‌کنند.",
     featured: true,
-    cta: { label: "Get started", href: "/login", variant: "primary" },
+    cta: { label: "شروع کنید", href: "/login", variant: "primary" },
     items: [
-      "Everything in Starter",
-      "Unlimited trades",
-      "Advanced analytics & reports",
-      "Statement parsing",
-      "Priority support",
+      "همه امکانات استارتر",
+      "معاملات نامحدود",
+      "تحلیل و گزارش‌های پیشرفته",
+      "پردازش صورت‌حساب",
+      "پشتیبانی اولویت‌دار",
     ],
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    description: "For teams and prop desks.",
-    cta: { label: "Contact sales", href: "/#contact", variant: "outline" },
+    name: "سازمانی",
+    price: "سفارشی",
+    description: "برای تیم‌ها و میزهای معاملاتی.",
+    cta: { label: "تماس با ما", href: "/#contact", variant: "outline" },
     items: [
-      "Everything in Pro",
-      "Multi-account management",
-      "API access (coming soon)",
-      "Dedicated support",
+      "همه امکانات حرفه‌ای",
+      "مدیریت چند حساب",
+      "دسترسی API (به‌زودی)",
+      "پشتیبانی اختصاصی",
     ],
   },
 ];
@@ -62,9 +62,9 @@ export function Pricing() {
     <section id="pricing" className="scroll-mt-16 border-t border-white/6">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
-          eyebrow="Pricing"
-          title="Simple pricing, serious tools"
-          lede="Start free while you build the habit. Upgrade when the data demands more."
+          eyebrow="تعرفه‌ها"
+          title="تعرفه ساده، ابزارهای حرفه‌ای"
+          lede="رایگان شروع کنید تا عادت ساختن ژورنال را تمرین کنید. وقتی داده‌ها بیشتر شد، ارتقا دهید."
         />
 
         <div className="mt-14 grid gap-4 md:grid-cols-3">
@@ -80,13 +80,13 @@ export function Pricing() {
             >
               {tier.featured ? (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-1 text-[11px] font-medium text-white">
-                  Most popular
+                  محبوب‌ترین
                 </span>
               ) : null}
 
               <h3 className="text-sm font-medium text-zinc-400">{tier.name}</h3>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-4xl font-semibold tracking-tight text-zinc-50">
+                <span className="text-4xl font-semibold text-zinc-50">
                   {tier.price}
                 </span>
                 {tier.period ? (

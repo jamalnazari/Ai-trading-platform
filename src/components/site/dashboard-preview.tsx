@@ -5,19 +5,19 @@ import { LogoMark } from "@/components/ui/logo";
  * hero. Pure markup + SVG — no screenshots, no external images.
  */
 
-const miniNav = ["Dashboard", "Users", "Analytics", "Settings"];
+const miniNav = ["داشبورد", "کاربران", "تحلیل‌ها", "تنظیمات"];
 
 const miniStats = [
-  { label: "Total Users", value: "24" },
-  { label: "Visits", value: "1,249" },
-  { label: "Statements", value: "342" },
+  { label: "کاربران", value: "۲۴" },
+  { label: "بازدیدها", value: "۱٬۲۴۹" },
+  { label: "صورت‌حساب‌ها", value: "۳۴۲" },
 ];
 
 const miniRows = [
-  { name: "Kenji Watanabe", detail: "kenji.watanabe", status: "Active" },
-  { name: "Priya Sharma", detail: "priya.sharma", status: "Active" },
-  { name: "Sofia Rossi", detail: "sofia.rossi", status: "Invited" },
-  { name: "Emma Johnson", detail: "emma.johnson", status: "Paused" },
+  { name: "Kenji Watanabe", detail: "kenji.watanabe", status: "فعال" },
+  { name: "Priya Sharma", detail: "priya.sharma", status: "فعال" },
+  { name: "Sofia Rossi", detail: "sofia.rossi", status: "دعوت‌شده" },
+  { name: "Emma Johnson", detail: "emma.johnson", status: "معلق" },
 ];
 
 export function DashboardPreview() {
@@ -38,7 +38,10 @@ export function DashboardPreview() {
               <span className="size-2.5 rounded-full bg-white/10" />
               <span className="size-2.5 rounded-full bg-white/10" />
             </div>
-            <span className="mx-auto rounded-md border border-white/8 bg-white/5 px-3 py-1 text-[11px] text-zinc-500">
+            <span
+              dir="ltr"
+              className="mx-auto rounded-md border border-white/8 bg-white/5 px-3 py-1 font-mono text-[11px] text-zinc-500"
+            >
               traderinsight.app/dashboard
             </span>
             <span className="w-12" />
@@ -46,11 +49,11 @@ export function DashboardPreview() {
 
           <div className="grid sm:grid-cols-[170px_1fr]">
             {/* sidebar */}
-            <div className="hidden flex-col gap-1 border-r border-white/6 p-3 sm:flex">
+            <div className="hidden flex-col gap-1 border-e border-white/6 p-3 sm:flex">
               <div className="mb-3 flex items-center gap-2 px-1">
                 <LogoMark className="size-5" />
                 <span className="text-[11px] font-semibold text-zinc-300">
-                  Trader Insight
+                  تریدر اینسایت
                 </span>
               </div>
               {miniNav.map((item, index) => (
@@ -66,7 +69,7 @@ export function DashboardPreview() {
                 </div>
               ))}
               <div className="mt-auto rounded-md border border-dashed border-white/12 px-2 py-1.5 text-[10px] text-zinc-600">
-                AI Assistant · Soon
+                دستیار هوش مصنوعی · به‌زودی
               </div>
             </div>
 
@@ -90,10 +93,10 @@ export function DashboardPreview() {
               <div className="rounded-lg border border-white/6 bg-white/[0.02] p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-[10px] text-zinc-500">
-                    Visits · last 30 days
+                    بازدیدها · ۳۰ روز اخیر
                   </span>
                   <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[9px] text-blue-300">
-                    +12.4%
+                    +۱۲٫۴٪
                   </span>
                 </div>
                 <svg viewBox="0 0 600 120" className="h-28 w-full" aria-hidden>
@@ -126,7 +129,7 @@ export function DashboardPreview() {
                     className="flex items-center justify-between rounded-md px-2 py-1.5 text-[11px]"
                   >
                     <span className="text-zinc-300">{row.name}</span>
-                    <span className="hidden text-zinc-600 sm:inline">
+                    <span dir="ltr" className="hidden font-mono text-zinc-600 sm:inline">
                       {row.detail}
                     </span>
                     <span className="rounded-full bg-white/8 px-2 py-0.5 text-[9px] text-zinc-400">

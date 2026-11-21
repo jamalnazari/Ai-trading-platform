@@ -35,8 +35,8 @@ export function Switch({
     >
       <span
         className={cn(
-          "absolute top-0.5 left-0.5 size-4 rounded-full bg-white shadow transition-transform",
-          checked && "translate-x-4",
+          "absolute start-0.5 size-4 rounded-full bg-white shadow transition-transform",
+          checked && "translate-x-4 rtl:-translate-x-4",
         )}
       />
     </button>

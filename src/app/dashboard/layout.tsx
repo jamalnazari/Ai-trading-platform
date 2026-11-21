@@ -4,7 +4,7 @@ import { getSession } from "@/lib/session";
 import { DashboardShell } from "@/components/dashboard/shell";
 
 export const metadata: Metadata = {
-  title: { default: "Dashboard", template: "%s · Trader Insight" },
+  title: { default: "داشبورد", template: "%s · تریدر اینسایت" },
 };
 
 export default async function DashboardLayout({

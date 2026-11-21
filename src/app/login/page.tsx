@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowLeft, KeyRound, ShieldCheck } from "lucide-react";
+import { ArrowRight, KeyRound, ShieldCheck } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { Card } from "@/components/ui/card";
 import { getAdminCredentials } from "@/lib/auth";
@@ -9,7 +9,7 @@ import { getSession } from "@/lib/session";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
-  title: "Sign in",
+  title: "ورود",
 };
 
 export default async function LoginPage({
@@ -39,21 +39,21 @@ export default async function LoginPage({
 
       <Link
         href="/"
-        className="absolute top-6 left-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-300"
+        className="absolute top-6 start-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-300"
       >
-        <ArrowLeft className="size-4" aria-hidden />
-        Back to site
+        <ArrowRight className="size-4" aria-hidden />
+        بازگشت به سایت
       </Link>
 
       <div className="relative flex w-full max-w-sm flex-col gap-8">
         <div className="flex flex-col items-center gap-3 text-center">
           <Logo markClassName="size-9" />
           <div>
-            <h1 className="text-xl font-semibold tracking-tight text-zinc-50">
-              Sign in to Trader Insight
+            <h1 className="text-xl font-semibold text-zinc-50">
+              ورود به تریدر اینسایت
             </h1>
             <p className="mt-1 text-sm text-zinc-500">
-              Admin access · no registration in MVP
+              دسترسی مدیر · در نسخه MVP ثبت‌نام وجود ندارد
             </p>
           </div>
         </div>
@@ -69,14 +69,22 @@ export default async function LoginPage({
               aria-hidden
             />
             <div className="text-xs leading-relaxed text-zinc-500">
-              <p className="font-medium text-zinc-400">Default credentials</p>
+              <p className="font-medium text-zinc-400">
+                اعتبارنامه پیش‌فرض
+              </p>
               <p className="mt-1">
-                Username{" "}
-                <code className="rounded bg-white/8 px-1.5 py-0.5 font-mono text-[11px] text-zinc-300">
+                نام کاربری{" "}
+                <code
+                  dir="ltr"
+                  className="rounded bg-white/8 px-1.5 py-0.5 font-mono text-[11px] text-zinc-300"
+                >
                   {credentials.username}
                 </code>{" "}
-                · Password{" "}
-                <code className="rounded bg-white/8 px-1.5 py-0.5 font-mono text-[11px] text-zinc-300">
+                · رمز عبور{" "}
+                <code
+                  dir="ltr"
+                  className="rounded bg-white/8 px-1.5 py-0.5 font-mono text-[11px] text-zinc-300"
+                >
                   {credentials.password}
                 </code>
               </p>
@@ -85,15 +93,15 @@ export default async function LoginPage({
                   className="mt-0.5 size-3.5 shrink-0 text-zinc-600"
                   aria-hidden
                 />
-                Configurable via{" "}
-                <code className="font-mono text-[11px] text-zinc-400">
+                از طریق تنظیمات بک‌اند{" "}
+                <code dir="ltr" className="font-mono text-[11px] text-zinc-400">
                   ADMIN_USERNAME
                 </code>{" "}
-                and{" "}
-                <code className="font-mono text-[11px] text-zinc-400">
+                و{" "}
+                <code dir="ltr" className="font-mono text-[11px] text-zinc-400">
                   ADMIN_PASSWORD
                 </code>{" "}
-                backend settings.
+                قابل تغییر است.
               </p>
             </div>
           </div>

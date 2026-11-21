@@ -32,13 +32,13 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
     <div className="flex flex-col gap-4">
       <Card>
         <CardHeader>
-          <CardTitle>General</CardTitle>
+          <CardTitle>عمومی</CardTitle>
           <CardDescription>
-            Brand identity for the public website and dashboard.
+            هویت برند برای وب‌سایت عمومی و داشبورد.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-5">
-          <Field label="Website name" hint="Shown in the browser title and footer.">
+          <Field label="نام وب‌سایت" hint="در عنوان مرورگر و فوتر نمایش داده می‌شود.">
             <Input
               value={websiteName}
               onChange={(event) => setWebsiteName(event.target.value)}
@@ -47,14 +47,14 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
           </Field>
 
           <div className="flex flex-col gap-1.5">
-            <span className="text-sm font-medium text-zinc-300">Logo</span>
+            <span className="text-sm font-medium text-zinc-300">لوگو</span>
             <div className="flex items-center gap-4">
               <span className="flex size-16 items-center justify-center rounded-xl border border-white/10 bg-white/5">
                 {logoPreview ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={logoPreview}
-                    alt="Uploaded logo preview"
+                    alt="پیش‌نمایش لوگوی بارگذاری‌شده"
                     className="size-14 rounded-lg object-contain"
                   />
                 ) : (
@@ -68,11 +68,11 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
                   onClick={() => fileInputRef.current?.click()}
                 >
                   <Upload className="size-3.5" aria-hidden />
-                  Upload logo
+                  بارگذاری لوگو
                 </Button>
                 <p className="text-xs text-zinc-600">
-                  <ImageIcon className="mr-1 inline size-3" aria-hidden />
-                  PNG or SVG · square · max 1 MB
+                  <ImageIcon className="me-1 inline size-3" aria-hidden />
+                  PNG یا SVG · مربعی · حداکثر ۱ مگابایت
                 </p>
                 <input
                   ref={fileInputRef}
@@ -86,16 +86,16 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
           </div>
 
           <Field
-            label="Theme"
-            hint="Light and system themes are planned for a future release."
+            label="پوسته"
+            hint="پوسته‌های روشن و سیستم در نسخه‌های آینده اضافه می‌شوند."
           >
             <Select value={theme} onChange={(event) => setTheme(event.target.value)}>
-              <option value="dark">Dark (default)</option>
+              <option value="dark">تیره (پیش‌فرض)</option>
               <option value="light" disabled>
-                Light — coming soon
+                روشن — به‌زودی
               </option>
               <option value="system" disabled>
-                System — coming soon
+                سیستم — به‌زودی
               </option>
             </Select>
           </Field>
@@ -104,24 +104,26 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
 
       <Card>
         <CardHeader>
-          <CardTitle>Availability</CardTitle>
+          <CardTitle>دسترس‌پذیری</CardTitle>
           <CardDescription>
-            Control how the public website behaves during maintenance windows.
+            کنترل رفتار وب‌سایت عمومی در بازه‌های تعمیر و نگهداری.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-between gap-6 rounded-xl border border-white/8 bg-white/[0.02] p-4">
             <div>
-              <p className="text-sm font-medium text-zinc-200">Maintenance mode</p>
+              <p className="text-sm font-medium text-zinc-200">
+                حالت تعمیر و نگهداری
+              </p>
               <p className="mt-1 text-sm text-zinc-500">
-                When enabled, the public website shows a maintenance notice.
-                The admin dashboard stays accessible.
+                وقتی فعال باشد، وب‌سایت عمومی پیام تعمیر نشان می‌دهد. داشبورد
+                مدیریت همچنان در دسترس می‌ماند.
               </p>
             </div>
             <Switch
               checked={maintenance}
               onChange={setMaintenance}
-              aria-label="Toggle maintenance mode"
+              aria-label="تغییر وضعیت حالت تعمیر و نگهداری"
             />
           </div>
         </CardContent>
@@ -129,34 +131,34 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
 
       <Card>
         <CardHeader>
-          <CardTitle>Future features</CardTitle>
+          <CardTitle>امکانات آینده</CardTitle>
           <CardDescription>
-            Reserved modules from the product roadmap — they become
-            configurable once they ship.
+            ماژول‌های رزروشده از نقشه راه محصول — با عرضه هر ماژول، همین‌جا
+            قابل فعال‌سازی می‌شوند.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
           {[
             {
               icon: Sparkles,
-              name: "AI Module",
+              name: "ماژول هوش مصنوعی",
               description:
-                "Automated analysis of journal entries and statements.",
-              version: "V2",
+                "تحلیل خودکار ورودی‌های ژورنال و صورت‌حساب‌های معاملاتی.",
+              version: "نسخه ۲",
             },
             {
               icon: Bell,
-              name: "Price Alerts",
+              name: "هشدار قیمت",
               description:
-                "Watchlists and notifications for price levels.",
-              version: "V3",
+                "واچ‌لیست‌ها و اعلان‌ها برای سطوح قیمتی موردنظر.",
+              version: "نسخه ۳",
             },
             {
               icon: Bot,
-              name: "Trading Agent",
+              name: "ایجنت معاملاتی",
               description:
-                "Autonomous agent that reviews performance and suggests actions.",
-              version: "V4",
+                "ایجنت مستقلی که عملکرد را مرور می‌کند و اقدام پیشنهادی می‌دهد.",
+              version: "نسخه ۴",
             },
           ].map((feature) => (
             <div
@@ -168,31 +170,35 @@ export function SettingsForm({ initialWebsiteName }: { initialWebsiteName: strin
                   <feature.icon className="size-4" aria-hidden />
                 </span>
                 <div>
-                  <p className="flex items-center gap-2 text-sm font-medium text-zinc-300">
+                  <p className="flex flex-wrap items-center gap-2 text-sm font-medium text-zinc-300">
                     {feature.name}
-                    <Badge variant="soon">{feature.version} · Coming soon</Badge>
+                    <Badge variant="soon">{feature.version} · به‌زودی</Badge>
                   </p>
                   <p className="mt-1 text-sm text-zinc-500">
                     {feature.description}
                   </p>
                 </div>
               </div>
-              <Switch checked={false} disabled aria-label={`${feature.name} (coming soon)`} />
+              <Switch
+                checked={false}
+                disabled
+                aria-label={`${feature.name} (به‌زودی)`}
+              />
             </div>
           ))}
         </CardContent>
         <CardFooter className="justify-between">
           <p className="text-xs text-zinc-600">
-            Changes apply to this instance immediately.
+            تغییرات بلافاصله روی این نسخه اعمال می‌شود.
           </p>
           <Button variant="primary" size="md" onClick={handleSave}>
             {saved ? (
               <>
                 <Check className="size-4" aria-hidden />
-                Saved
+                ذخیره شد
               </>
             ) : (
-              "Save changes"
+              "ذخیره تغییرات"
             )}
           </Button>
         </CardFooter>

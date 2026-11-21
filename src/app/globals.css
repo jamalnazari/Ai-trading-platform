@@ -16,7 +16,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+  /* Vazirmatn first (Persian UI) · Geist as Latin fallback · Geist Mono for code */
+  --font-sans: Vazirmatn, var(--font-geist-sans), ui-sans-serif, system-ui,
     "Segoe UI", sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", "Cascadia Mono",
     monospace;

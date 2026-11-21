@@ -28,9 +28,9 @@ export function Badge({
 }
 
 const statusStyles: Record<string, { label: string; variant: BadgeVariant }> = {
-  active: { label: "Active", variant: "accent" },
-  invited: { label: "Invited", variant: "outline" },
-  suspended: { label: "Suspended", variant: "neutral" },
+  active: { label: "فعال", variant: "accent" },
+  invited: { label: "دعوت‌شده", variant: "outline" },
+  suspended: { label: "معلق", variant: "neutral" },
 };
 
 export function StatusBadge({ status }: { status: string }) {

@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./button";
+import { formatNumber } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 export interface PaginationProps {
@@ -34,24 +35,26 @@ export function Pagination({
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-3">
       <p className="text-xs text-zinc-500">
-        Showing{" "}
+        نمایش{" "}
         <span className="font-medium text-zinc-400 tabular-nums">
-          {start}–{end}
+          {formatNumber(start)}–{formatNumber(end)}
         </span>{" "}
-        of{" "}
-        <span className="font-medium text-zinc-400 tabular-nums">{total}</span>{" "}
-        users
+        از{" "}
+        <span className="font-medium text-zinc-400 tabular-nums">
+          {formatNumber(total)}
+        </span>{" "}
+        کاربر
       </p>
-      <nav className="flex items-center gap-1" aria-label="Pagination">
+      <nav className="flex items-center gap-1" aria-label="صفحه‌بندی">
         <Button
           variant="ghost"
           size="sm"
           disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
-          aria-label="Previous page"
+          aria-label="صفحه قبلی"
         >
-          <ChevronLeft className="size-4" />
-          Prev
+          <ChevronLeft className="size-4 rtl:-scale-x-100" aria-hidden />
+          قبلی
         </Button>
         {pageRange(page, pageCount).map((p, index, arr) => (
           <span key={p} className="flex items-center">
@@ -69,7 +72,7 @@ export function Pagination({
                   : "text-zinc-500 hover:bg-white/5 hover:text-zinc-200",
               )}
             >
-              {p}
+              {formatNumber(p)}
             </button>
           </span>
         ))}
@@ -78,10 +81,10 @@ export function Pagination({
           size="sm"
           disabled={page >= pageCount}
           onClick={() => onPageChange(page + 1)}
-          aria-label="Next page"
+          aria-label="صفحه بعدی"
         >
-          Next
-          <ChevronRight className="size-4" />
+          بعدی
+          <ChevronRight className="size-4 rtl:-scale-x-100" aria-hidden />
         </Button>
       </nav>
     </div>

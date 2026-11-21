@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import { Brain } from "lucide-react";
 import { ComingSoon } from "@/components/dashboard/coming-soon";
 
-export const metadata: Metadata = { title: "Trading Memory" };
+export const metadata: Metadata = { title: "حافظه معاملاتی" };
 
 export default function TradingMemoryPage() {
   return (
     <ComingSoon
-      title="Trading Memory"
+      title="حافظه معاملاتی"
       icon={Brain}
-      version="Version 2"
-      description="A long-term memory of your trading history: how you behaved in similar market conditions, what worked before, and which mistakes repeat. Feeds both the AI Assistant and the Trading Agent."
+      version="نسخه ۲"
+      description="حافظه بلندمدت از تاریخچه معاملاتی شما: در شرایط مشابه بازار چگونه رفتار کرده‌اید، چه چیزی جواب داده و کدام اشتباهات تکرار می‌شوند. هم برای دستیار هوش مصنوعی و هم ایجنت معاملاتی تغذیه می‌کند."
       capabilities={[
-        "Searchable history of setups and outcomes",
-        "Context retrieval for AI reviews",
-        "Recurring-mistake detection",
-        "Condition-based playbooks",
+        "جستجوی تاریخچه ستاپ‌ها و نتایج",
+        "بازیابی زمینه برای بازبینی‌های هوش مصنوعی",
+        "تشخیص اشتباهات تکرارشونده",
+        "پلی‌بوک‌های مبتنی بر شرایط بازار",
       ]}
     />
   );

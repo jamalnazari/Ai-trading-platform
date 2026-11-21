@@ -43,8 +43,8 @@ function NavItem({
       />
       <span className="truncate">{label}</span>
       {soon ? (
-        <span className="ml-auto rounded-full border border-white/10 px-1.5 py-px text-[10px] font-medium tracking-wide text-zinc-600 uppercase">
-          Soon
+        <span className="ms-auto shrink-0 rounded-full border border-white/10 px-1.5 py-px text-[10px] font-medium text-zinc-600">
+          به‌زودی
         </span>
       ) : null}
     </Link>
@@ -60,11 +60,11 @@ export function SidebarContent({ username }: { username: string }) {
 
       <nav
         className="flex-1 space-y-6 overflow-y-auto px-3 pb-6"
-        aria-label="Dashboard"
+        aria-label="داشبورد"
       >
         {dashboardNav.map((group) => (
           <div key={group.label}>
-            <p className="mb-2 px-3 text-[11px] font-medium tracking-widest text-zinc-600 uppercase">
+            <p className="mb-2 px-3 text-[11px] font-medium text-zinc-600">
               {group.label}
             </p>
             <div className="flex flex-col gap-0.5">
@@ -78,20 +78,20 @@ export function SidebarContent({ username }: { username: string }) {
 
       <div className="border-t border-white/6 p-3">
         <div className="flex items-center gap-3 rounded-lg px-2 py-2">
-          <Avatar name="Administrator" />
+          <Avatar name="مدیر" />
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-medium text-zinc-200">
-              Administrator
+              مدیر
             </p>
-            <p className="truncate text-xs text-zinc-600">
+            <p dir="ltr" className="truncate text-right text-xs text-zinc-600">
               {username}@traderinsight.app
             </p>
           </div>
           <form action="/api/auth/logout" method="post">
             <button
               type="submit"
-              aria-label="Log out"
-              title="Log out"
+              aria-label="خروج"
+              title="خروج"
               className="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white"
             >
               <LogOut className="size-4" aria-hidden />

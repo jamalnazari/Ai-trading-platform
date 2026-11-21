@@ -3,6 +3,10 @@
 **An AI-ready trading journal platform.** Track your performance. Understand
 your mistakes. Improve consistently.
 
+این نسخه (MVP) دارای **رابط کاربری کاملاً فارسی و راست‌به‌چپ (RTL)** است —
+هم وب‌سایت عمومی و هم پنل مدیریت، با فونت [وزیرمتن](https://github.com/rastikerdar/vazirmatn)،
+اعداد فارسی و تاریخ شمسی (جلالی).
+
 This repository contains the complete MVP (Version 1): the public marketing
 website, administrator authentication, and the full admin dashboard — built
 with a design system that already reserves space for the future modules
@@ -13,7 +17,8 @@ Connections) without any redesign.
 
 - **Next.js 15** (App Router) · React 19 · TypeScript
 - **Tailwind CSS v4** — design tokens in `src/app/globals.css`
-- **Geist** font (bundled locally) · **lucide-react** icons
+- **Vazirmatn** (Persian/RTL UI) + **Geist Mono** for code — bundled locally
+- **lucide-react** icons
 - Zero chart dependencies — SVG charts are hand-built in `src/components/charts`
 
 ## Quick start
@@ -42,6 +47,9 @@ see `.env.example`):
 | `SESSION_SECRET` | dev placeholder — set a random 32-byte value in production |
 
 Copy `.env.example` to `.env.local` to override them. Sign in at `/login`.
+
+**ورود به پنل:** به آدرس `http://localhost:3000/login` بروید و با نام کاربری
+`admin` و رمز `admin123` وارد شوید (یا مقادیر دلخواه از `.env.local`).
 
 ## Routes
 

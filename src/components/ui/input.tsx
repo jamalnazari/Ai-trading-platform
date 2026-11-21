@@ -19,12 +19,12 @@ export function Input({ className, icon, type = "text", ...props }: InputProps) 
   if (icon) {
     return (
       <div className="relative">
-        <span className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-zinc-500 [&_svg]:size-4">
+        <span className="pointer-events-none absolute top-1/2 start-3 -translate-y-1/2 text-zinc-500 [&_svg]:size-4">
           {icon}
         </span>
         <input
           type={type}
-          className={cn(inputClasses, "pl-9", className)}
+          className={cn(inputClasses, "ps-9", className)}
           {...props}
         />
       </div>
@@ -42,14 +42,14 @@ export function PasswordInput({
     <div className="relative">
       <input
         type={visible ? "text" : "password"}
-        className={cn(inputClasses, "pr-10", className)}
+        className={cn(inputClasses, "pe-10", className)}
         {...props}
       />
       <button
         type="button"
         onClick={() => setVisible((v) => !v)}
-        aria-label={visible ? "Hide password" : "Show password"}
-        className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md p-1.5 text-zinc-500 transition-colors hover:text-zinc-300"
+        aria-label={visible ? "پنهان کردن رمز" : "نمایش رمز"}
+        className="absolute top-1/2 end-2 -translate-y-1/2 rounded-md p-1.5 text-zinc-500 transition-colors hover:text-zinc-300"
       >
         {visible ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
       </button>
@@ -87,7 +87,7 @@ export function Select({
       <select
         className={cn(
           inputClasses,
-          "appearance-none bg-elevated pr-9",
+          "appearance-none bg-elevated pe-9",
           className,
         )}
         {...props}
@@ -97,7 +97,7 @@ export function Select({
       <svg
         aria-hidden
         viewBox="0 0 16 16"
-        className="pointer-events-none absolute top-1/2 right-3 size-3.5 -translate-y-1/2 fill-none stroke-zinc-500 stroke-[1.5]"
+        className="pointer-events-none absolute top-1/2 end-3 size-3.5 -translate-y-1/2 fill-none stroke-zinc-500 stroke-[1.5]"
       >
         <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>

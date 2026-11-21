@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Activity,
-  ArrowRight,
+  ArrowLeft,
   FileUp,
   HeartPulse,
-  LogIn,
   ServerCog,
+  LogIn,
   Settings,
   UserPlus,
   Users,
@@ -21,7 +21,7 @@ import { PageHeader } from "@/components/dashboard/page-header";
 import { analytics, recentActivity, visitsLast30Days, type ActivityType } from "@/lib/data";
 import { formatNumber } from "@/lib/utils";
 
-export const metadata: Metadata = { title: "Dashboard" };
+export const metadata: Metadata = { title: "داشبورد" };
 
 const activityIcons: Record<ActivityType, LucideIcon> = {
   signup: UserPlus,
@@ -35,55 +35,55 @@ export default function DashboardPage() {
   return (
     <>
       <PageHeader
-        title="Dashboard"
-        description="Overview of your Trader Insight workspace."
+        title="داشبورد"
+        description="نمای کلی فضای کاری تریدر اینسایت شما."
         actions={
           <Link
             href="/dashboard/analytics"
             className={buttonClasses({ variant: "secondary", size: "sm" })}
           >
-            View analytics
-            <ArrowRight className="size-3.5" aria-hidden />
+            مشاهده تحلیل‌ها
+            <ArrowLeft className="size-3.5" aria-hidden />
           </Link>
         }
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
-          label="Total Users"
+          label="کل کاربران"
           value={formatNumber(24)}
           icon={Users}
-          delta="+3 this week"
+          delta="+۳ در این هفته"
           deltaTone="up"
-          footnote="17 active · 5 invited · 2 suspended"
+          footnote="۱۷ فعال · ۵ دعوت‌شده · ۲ معلق"
         >
           <Sparkline data={[3, 4, 4, 6, 7, 9, 10, 12, 14, 18, 21, 24]} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="Website Visits"
+          label="بازدیدهای وب‌سایت"
           value={formatNumber(analytics.totalVisits)}
           icon={Activity}
           delta={analytics.totalVisitsDelta}
           deltaTone="up"
-          footnote={`${formatNumber(analytics.monthVisits)} in the last 30 days`}
+          footnote={`${formatNumber(analytics.monthVisits)} در ۳۰ روز اخیر`}
         >
           <Sparkline data={visitsLast30Days} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="Uploaded Statements"
+          label="صورت‌حساب‌های بارگذاری‌شده"
           value={formatNumber(analytics.uploadedStatements)}
           icon={FileUp}
-          delta="+12 this month"
+          delta="+۱۲ در این ماه"
           deltaTone="up"
-          footnote="All files parsed successfully"
+          footnote="همه فایل‌ها با موفقیت پردازش شدند"
         >
           <Sparkline data={[2, 3, 5, 4, 8, 9, 12, 11, 14, 16, 19, 23]} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="System Status"
-          value="Operational"
+          label="وضعیت سیستم"
+          value="عادی"
           icon={ServerCog}
-          footnote={`Uptime ${analytics.uptime} · API v1.0`}
+          footnote={`آپتایم ${analytics.uptime} · API نسخه ۱٫۰`}
         >
           <div className="flex items-center gap-2 rounded-lg border border-white/8 bg-white/[0.02] px-3 py-2">
             <span className="relative flex size-2">
@@ -92,7 +92,7 @@ export default function DashboardPage() {
             </span>
             <span className="flex items-center gap-1.5 text-xs text-zinc-400">
               <HeartPulse className="size-3.5 text-accent" aria-hidden />
-              All services running normally
+              همه سرویس‌ها به‌طور عادی در حال اجرا هستند
             </span>
           </div>
         </StatCard>
@@ -103,8 +103,8 @@ export default function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Latest events across the platform.</CardDescription>
+            <CardTitle>فعالیت‌های اخیر</CardTitle>
+            <CardDescription>آخرین رویدادها در سراسر پلتفرم.</CardDescription>
           </CardHeader>
           <CardContent className="px-3 py-3">
             <ul className="flex flex-col">

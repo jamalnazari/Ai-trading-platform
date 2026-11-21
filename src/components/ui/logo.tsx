@@ -33,8 +33,8 @@ export function Logo({
   const content = (
     <>
       <LogoMark className={markClassName} />
-      <span className="text-[15px] font-semibold tracking-tight text-zinc-100">
-        Trader Insight
+      <span className="text-[15px] font-semibold text-zinc-100">
+        تریدر اینسایت
       </span>
     </>
   );

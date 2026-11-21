@@ -18,27 +18,31 @@ export function LoginForm({ nextPath }: { nextPath: string }) {
     <form action={formAction} className="flex flex-col gap-5">
       <input type="hidden" name="next" value={nextPath} />
 
-      <Field label="Username">
+      <Field label="نام کاربری">
         <Input
           name="username"
           placeholder="admin"
           autoComplete="username"
           autoFocus
           required
+          dir="ltr"
+          className="text-start"
           icon={<User aria-hidden />}
         />
       </Field>
 
-      <Field label="Password">
+      <Field label="رمز عبور">
         <PasswordInput
           name="password"
           placeholder="••••••••"
           autoComplete="current-password"
           required
+          dir="ltr"
+          className="text-start"
         />
       </Field>
 
-      <Checkbox name="remember" label="Remember me" />
+      <Checkbox name="remember" label="مرا به خاطر بسپار" />
 
       {state.error ? (
         <p
@@ -57,7 +61,7 @@ export function LoginForm({ nextPath }: { nextPath: string }) {
         disabled={pending}
         className="w-full"
       >
-        {pending ? "Signing in…" : "Sign in"}
+        {pending ? "در حال ورود…" : "ورود"}
         {!pending && <LogIn className="size-4" aria-hidden />}
       </Button>
     </form>

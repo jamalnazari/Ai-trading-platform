@@ -21,10 +21,10 @@ export function SectionHeading({
         className,
       )}
     >
-      <span className="text-xs font-medium tracking-widest text-accent uppercase">
+      <span className="text-xs font-medium text-accent">
         {eyebrow}
       </span>
-      <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance text-zinc-50 md:text-4xl">
+      <h2 className="max-w-2xl text-3xl font-semibold text-balance text-zinc-50 md:text-4xl">
         {title}
       </h2>
       {lede ? (

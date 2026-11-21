@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import { Bot } from "lucide-react";
 import { ComingSoon } from "@/components/dashboard/coming-soon";
 
-export const metadata: Metadata = { title: "Trading Agent" };
+export const metadata: Metadata = { title: "ایجنت معاملاتی" };
 
 export default function TradingAgentPage() {
   return (
     <ComingSoon
-      title="Trading Agent"
+      title="ایجنت معاملاتی"
       icon={Bot}
-      version="Version 4"
-      description="An autonomous agent that continuously reviews your journal, applies the rules you define, and prepares pre-trade checklists. Always under your supervision."
+      version="نسخه ۴"
+      description="ایجنتی مستقل که به‌طور پیوسته ژورنال شما را مرور می‌کند، قوانین تعریف‌شده شما را اعمال می‌کند و چک‌لیست پیش از معامله آماده می‌کند — همیشه زیر نظر شما."
       capabilities={[
-        "Continuous journal review",
-        "Pre-trade checklist generation",
-        "Rule-based risk guardrails",
-        "Progress reports against your plan",
+        "مرور پیوسته ژورنال",
+        "تولید چک‌لیست پیش از معامله",
+        "محافظ‌های ریسک مبتنی بر قاعده",
+        "گزارش پیشرفت نسبت به پلن شما",
       ]}
     />
   );

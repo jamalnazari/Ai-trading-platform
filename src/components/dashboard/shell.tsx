@@ -25,7 +25,7 @@ export function DashboardShell({
   return (
     <div className="min-h-screen bg-canvas">
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 border-r border-white/6 bg-surface lg:block">
+      <aside className="fixed inset-y-0 start-0 z-30 hidden w-64 border-e border-white/6 bg-surface lg:block">
         <SidebarContent username={username} />
       </aside>
 
@@ -37,12 +37,12 @@ export function DashboardShell({
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute inset-y-0 left-0 w-72 border-r border-white/10 bg-surface shadow-2xl">
+          <div className="absolute inset-y-0 start-0 w-72 border-e border-white/10 bg-surface shadow-2xl">
             <div className="flex justify-end p-2">
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
-                aria-label="Close navigation"
+                aria-label="بستن منو"
                 className="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white"
               >
                 <X className="size-4" />
@@ -55,13 +55,13 @@ export function DashboardShell({
         </div>
       ) : null}
 
-      <div className="lg:pl-64">
+      <div className="lg:ps-64">
         {/* Topbar */}
         <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-white/6 bg-canvas/80 px-4 backdrop-blur-md sm:px-6">
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            aria-label="Open navigation"
+            aria-label="باز کردن منو"
             className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/5 hover:text-white lg:hidden"
           >
             <Menu className="size-5" />
@@ -71,20 +71,20 @@ export function DashboardShell({
             {titleForPath(pathname)}
           </h1>
 
-          <div className="ml-auto flex items-center gap-3">
+          <div className="ms-auto flex items-center gap-3">
             <div className="hidden md:block">
               <div className="relative">
                 <Search
-                  className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-zinc-600"
+                  className="pointer-events-none absolute top-1/2 start-2.5 size-3.5 -translate-y-1/2 text-zinc-600"
                   aria-hidden
                 />
                 <input
                   type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                  className="h-8 w-56 rounded-lg border border-white/10 bg-white/5 pr-10 pl-8 text-xs text-zinc-300 placeholder:text-zinc-600 focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20"
+                  placeholder="جستجو"
+                  aria-label="جستجو"
+                  className="h-8 w-56 rounded-lg border border-white/10 bg-white/5 pe-10 ps-8 text-xs text-zinc-300 placeholder:text-zinc-600 focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/20"
                 />
-                <kbd className="absolute top-1/2 right-2 -translate-y-1/2 rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-zinc-600">
+                <kbd className="absolute top-1/2 end-2 -translate-y-1/2 rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-zinc-600">
                   ⌘K
                 </kbd>
               </div>
@@ -95,7 +95,7 @@ export function DashboardShell({
               className="hidden items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-zinc-400 transition-colors hover:bg-white/5 hover:text-white sm:inline-flex"
             >
               <ExternalLink className="size-3.5" aria-hidden />
-              View website
+              مشاهده وب‌سایت
             </Link>
           </div>
         </header>

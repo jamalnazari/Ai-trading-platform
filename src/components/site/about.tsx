@@ -4,21 +4,21 @@ import { SectionHeading } from "./section-heading";
 const principles = [
   {
     icon: Target,
-    title: "Journal first",
+    title: "اول ژورنال",
     description:
-      "Every feature starts from the trading journal — the single source of truth for your decisions.",
+      "هر امکان از ژورنال معاملاتی شروع می‌شود — منبع یگانه حقیقت برای تصمیم‌های شما.",
   },
   {
     icon: ShieldCheck,
-    title: "Your data, your edge",
+    title: "داده‌های تو، برد تو",
     description:
-      "Your trade history and notes belong to you. Privacy is a feature, not a setting.",
+      "تاریخچه معاملات و یادداشت‌های شما متعلق به خودتان است. حریم خصوصی یک امکان است، نه یک تنظیمات.",
   },
   {
     icon: Compass,
-    title: "Roadmap driven",
+    title: "مبتنی بر نقشه راه",
     description:
-      "We ship focused versions. AI, alerts and agents arrive as native modules, not bolt-ons.",
+      "نسخه‌های متمرکز عرضه می‌کنیم. هوش مصنوعی، هشدارها و ایجنت‌ها به‌صورت ماژول بومی می‌آیند، نه چسب‌واند.",
   },
 ];
 
@@ -29,9 +29,9 @@ export function About() {
         <div className="grid items-start gap-12 md:grid-cols-2 md:gap-16">
           <SectionHeading
             align="left"
-            eyebrow="About"
-            title="Built by traders, for traders"
-            lede="Trader Insight exists because most traders don't have a performance problem — they have a review problem. Version 1 gives you the quiet, focused workspace to fix that: a journal, your statements, and honest analytics."
+            eyebrow="درباره ما"
+            title="ساخته‌شده توسط معامله‌گران، برای معامله‌گران"
+            lede="تریدر اینسایت به این دلیل وجود دارد که بیشتر معامله‌گران مشکل عملکرد ندارند — مشکل مرور و بازبینی ندارند. نسخه ۱ به شما فضای کاری آرام و متمرکز می‌دهد: یک ژورنال، صورت‌حساب‌هایتان، و تحلیل صادقانه."
           />
 
           <ul className="flex flex-col gap-4">

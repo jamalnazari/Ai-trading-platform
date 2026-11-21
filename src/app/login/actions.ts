@@ -31,12 +31,12 @@ export async function loginAction(
   const nextPath = safeNextPath(formData.get("next"));
 
   if (!username || !password) {
-    return { error: "Please enter both username and password." };
+    return { error: "لطفاً نام کاربری و رمز عبور را وارد کنید." };
   }
 
   const credentials = getAdminCredentials();
   if (username !== credentials.username || password !== credentials.password) {
-    return { error: "Invalid username or password." };
+    return { error: "نام کاربری یا رمز عبور اشتباه است." };
   }
 
   const maxAge = remember ? REMEMBER_MAX_AGE : SHORT_MAX_AGE;

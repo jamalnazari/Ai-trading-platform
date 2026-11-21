@@ -46,7 +46,7 @@ export function StatCard({
           </span>
         ) : null}
       </div>
-      <div className="text-3xl font-semibold tracking-tight text-zinc-50 tabular-nums">
+      <div className="text-3xl font-semibold text-zinc-50 tabular-nums">
         {value}
       </div>
       {footnote ? (

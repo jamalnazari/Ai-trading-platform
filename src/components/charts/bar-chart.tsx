@@ -1,3 +1,5 @@
+import { faDigits } from "@/lib/utils";
+
 /** Minimal vertical bar chart — pure SVG, server-renderable. */
 
 export interface BarDatum {
@@ -27,7 +29,7 @@ export function BarChart({
       viewBox={`0 0 ${width} ${height}`}
       className={className}
       role="img"
-      aria-label="Bar chart"
+      aria-label="نمودار میله‌ای"
     >
       {data.map((datum, index) => {
         const barHeight = (datum.value / max) * chartHeight;
@@ -43,7 +45,7 @@ export function BarChart({
               fontSize="10"
               className="fill-zinc-500"
             >
-              {datum.value}
+              {faDigits(datum.value)}
             </text>
             <rect
               x={x}

@@ -7,7 +7,7 @@ export function Table({
   return (
     <div className="w-full overflow-x-auto">
       <table
-        className={cn("w-full border-collapse text-left", className)}
+        className={cn("w-full border-collapse text-start", className)}
         {...props}
       />
     </div>
@@ -21,7 +21,7 @@ export function Th({
   return (
     <th
       className={cn(
-        "border-b border-white/8 px-4 py-3 text-xs font-medium tracking-wider text-zinc-500 uppercase",
+        "border-b border-white/8 px-4 py-3 text-xs font-medium text-zinc-500",
         className,
       )}
       {...props}

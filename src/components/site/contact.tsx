@@ -14,19 +14,20 @@ export function Contact() {
     <section id="contact" className="scroll-mt-16 border-t border-white/6">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
-          eyebrow="Contact"
-          title="Talk to us"
-          lede="Questions about the roadmap, the journal, or early access? We read everything."
+          eyebrow="تماس"
+          title="با ما در ارتباط باشید"
+          lede="سؤالی درباره نقشه راه، ژورنال یا دسترسی زودهنگام دارید؟ همه پیام‌ها را می‌خوانیم."
         />
 
         <div className="mx-auto mt-12 max-w-xl rounded-2xl border border-white/8 bg-surface p-8">
           <div className="flex flex-col items-center gap-6 text-center">
             <p className="text-sm text-zinc-400">
-              Reach the team directly — typical response within one business
-              day.
+              مستقیماً با تیم در تماس باشید — پاسخ معمولاً ظرف یک روز کاری
+              ارسال می‌شود.
             </p>
             <a
               href="mailto:hello@traderinsight.app"
+              dir="ltr"
               className={buttonClasses({ variant: "primary", size: "md" })}
             >
               <Mail className="size-4" aria-hidden />

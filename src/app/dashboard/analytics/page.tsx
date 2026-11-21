@@ -16,19 +16,19 @@ import {
 } from "@/lib/data";
 import { formatNumber } from "@/lib/utils";
 
-export const metadata: Metadata = { title: "Website Analytics" };
+export const metadata: Metadata = { title: "تحلیل وب‌سایت" };
 
 export default function AnalyticsPage() {
   return (
     <>
       <PageHeader
-        title="Website Analytics"
-        description="Traffic to the public Trader Insight website."
+        title="تحلیل وب‌سایت"
+        description="ترافیک وب‌سایت عمومی تریدر اینسایت."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
-          label="Total Visits"
+          label="کل بازدیدها"
           value={formatNumber(analytics.totalVisits)}
           icon={Globe}
           delta={analytics.totalVisitsDelta}
@@ -37,28 +37,28 @@ export default function AnalyticsPage() {
           <Sparkline data={visitsLast30Days} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="Today's Visits"
+          label="بازدیدهای امروز"
           value={formatNumber(analytics.todayVisits)}
           icon={CalendarCheck}
-          delta="+9 vs yesterday"
+          delta="+۹ نسبت به دیروز"
           deltaTone="up"
         >
           <Sparkline data={visitsLast30Days.slice(-7)} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="This Week"
+          label="این هفته"
           value={formatNumber(analytics.weekVisits)}
           icon={CalendarDays}
-          delta="+18.2%"
+          delta="+۱۸٫۲٪"
           deltaTone="up"
         >
           <Sparkline data={[96, 105, 96, 201, 214, 226, 218]} className="h-9 w-full" />
         </StatCard>
         <StatCard
-          label="This Month"
+          label="این ماه"
           value={formatNumber(analytics.monthVisits)}
           icon={CalendarRange}
-          delta="+31.5%"
+          delta="+۳۱٫۵٪"
           deltaTone="up"
         >
           <Sparkline data={visitsLast30Days} className="h-9 w-full" />
@@ -72,8 +72,8 @@ export default function AnalyticsPage() {
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Visits by weekday</CardTitle>
-            <CardDescription>Last full week · Monday to Sunday</CardDescription>
+            <CardTitle>بازدید بر اساس روز هفته</CardTitle>
+            <CardDescription>هفته کامل گذشته · شنبه تا جمعه</CardDescription>
           </CardHeader>
           <CardContent>
             <BarChart data={visitsByWeekday} className="h-44 w-full" />
@@ -82,8 +82,8 @@ export default function AnalyticsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Top pages</CardTitle>
-            <CardDescription>Most visited pages this month</CardDescription>
+            <CardTitle>پربازدیدترین صفحات</CardTitle>
+            <CardDescription>پربازدیدترین صفحات در این ماه</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-3">
             {topPages.map((page) => {
@@ -91,7 +91,7 @@ export default function AnalyticsPage() {
               const width = Math.round((page.visits / max) * 100);
               return (
                 <div key={page.path} className="flex items-center gap-3">
-                  <span className="w-28 shrink-0 font-mono text-xs text-zinc-400">
+                  <span dir="ltr" className="w-28 shrink-0 text-left font-mono text-xs text-zinc-400">
                     {page.path}
                   </span>
                   <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/8">
@@ -100,7 +100,7 @@ export default function AnalyticsPage() {
                       style={{ width: `${width}%` }}
                     />
                   </div>
-                  <span className="w-14 shrink-0 text-right text-xs text-zinc-400 tabular-nums">
+                  <span className="w-14 shrink-0 text-left text-xs text-zinc-400 tabular-nums">
                     {formatNumber(page.visits)}
                   </span>
                 </div>
@@ -112,37 +112,39 @@ export default function AnalyticsPage() {
 
       <Card className="mt-4 overflow-hidden">
         <CardHeader>
-          <CardTitle>Recent visitors</CardTitle>
+          <CardTitle>بازدیدکنندگان اخیر</CardTitle>
           <CardDescription>
-            Latest sessions · IP addresses partially masked for privacy
+            آخرین نشست‌ها · بخشی از آدرس IP برای حفظ حریم خصوصی پنهان شده است
           </CardDescription>
         </CardHeader>
         <CardContent className="px-0 pb-0">
           <Table>
             <thead>
               <tr>
-                <Th className="pl-6">IP Address</Th>
-                <Th>Location</Th>
-                <Th>Page</Th>
-                <Th>Browser</Th>
-                <Th className="pr-6 text-right">When</Th>
+                <Th className="ps-6">آدرس IP</Th>
+                <Th>مکان</Th>
+                <Th>صفحه</Th>
+                <Th>مرورگر</Th>
+                <Th className="pe-6 text-end">زمان</Th>
               </tr>
             </thead>
             <tbody>
               {recentVisitors.map((visitor) => (
                 <Tr key={`${visitor.ip}-${visitor.time}`}>
-                  <Td className="pl-6 font-mono text-xs text-zinc-400">
+                  <Td dir="ltr" className="ps-6 text-left font-mono text-xs text-zinc-400">
                     {visitor.ip}
                   </Td>
                   <Td className="text-zinc-300">
                     {visitor.city}
-                    <span className="ml-1.5 text-zinc-600">{visitor.country}</span>
+                    <span className="ms-1.5 text-zinc-600">{visitor.country}</span>
                   </Td>
-                  <Td className="font-mono text-xs text-zinc-400">
+                  <Td dir="ltr" className="text-left font-mono text-xs text-zinc-400">
                     {visitor.path}
                   </Td>
-                  <Td className="text-zinc-400">{visitor.browser}</Td>
-                  <Td className="pr-6 text-right text-zinc-500">
+                  <Td dir="ltr" className="text-right text-zinc-400">
+                    {visitor.browser}
+                  </Td>
+                  <Td className="pe-6 text-end text-zinc-500">
                     {visitor.time}
                   </Td>
                 </Tr>

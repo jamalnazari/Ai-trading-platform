@@ -4,25 +4,25 @@ import { GithubIcon, LinkedInIcon, XIcon } from "@/components/ui/brand-icons";
 
 const columns = [
   {
-    title: "Product",
+    title: "محصول",
     links: [
-      { label: "Features", href: "/#features" },
-      { label: "Pricing", href: "/#pricing" },
-      { label: "Roadmap", href: "/#roadmap" },
+      { label: "امکانات", href: "/#features" },
+      { label: "تعرفه‌ها", href: "/#pricing" },
+      { label: "نقشه راه", href: "/#roadmap" },
     ],
   },
   {
-    title: "Company",
+    title: "شرکت",
     links: [
-      { label: "About", href: "/#about" },
-      { label: "Contact", href: "/#contact" },
+      { label: "درباره ما", href: "/#about" },
+      { label: "تماس", href: "/#contact" },
     ],
   },
   {
-    title: "Account",
+    title: "حساب کاربری",
     links: [
-      { label: "Login", href: "/login" },
-      { label: "Dashboard", href: "/dashboard" },
+      { label: "ورود", href: "/login" },
+      { label: "داشبورد", href: "/dashboard" },
     ],
   },
 ];
@@ -41,8 +41,8 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4">
             <Logo />
             <p className="max-w-sm text-sm text-zinc-500">
-              A personal trading journal platform designed for traders. Track
-              your performance. Understand your mistakes. Improve consistently.
+              پلتفرم ژورنال معاملاتی شخصی، طراحی‌شده برای معامله‌گران. عملکرد
+              خود را رصد کنید. اشتباهات خود را بفهمید. پیوسته بهتر شوید.
             </p>
             <div className="flex items-center gap-3 pt-1">
               {socials.map((social) => (
@@ -63,7 +63,7 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 sm:gap-16">
             {columns.map((column) => (
               <div key={column.title}>
-                <h3 className="text-xs font-medium tracking-wider text-zinc-500 uppercase">
+                <h3 className="text-xs font-medium text-zinc-500">
                   {column.title}
                 </h3>
                 <ul className="mt-4 flex flex-col gap-2.5">
@@ -85,10 +85,10 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/6 pt-8 sm:flex-row">
           <p className="text-xs text-zinc-600">
-            © 2026 Trader Insight. All rights reserved.
+            © ۱۴۰۵ تریدر اینسایت — تمامی حقوق محفوظ است.
           </p>
           <p className="text-xs text-zinc-600">
-            Built for disciplined traders.
+            ساخته‌شده برای معامله‌گران منضبط.
           </p>
         </div>
       </div>

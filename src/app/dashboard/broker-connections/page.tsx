@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import { Plug } from "lucide-react";
 import { ComingSoon } from "@/components/dashboard/coming-soon";
 
-export const metadata: Metadata = { title: "Broker Connections" };
+export const metadata: Metadata = { title: "اتصالات کارگزاری" };
 
 export default function BrokerConnectionsPage() {
   return (
     <ComingSoon
-      title="Broker Connections"
+      title="اتصالات کارگزاری"
       icon={Plug}
-      version="Version 4"
-      description="Connect broker accounts to sync fills automatically instead of uploading statements. Connection slots are reserved in the data model from day one."
+      version="نسخه ۴"
+      description="حساب‌های کارگزاری را متصل کنید تا معاملات به‌جای بارگذاری صورت‌حساب، خودکار همگام شوند. جای اتصال‌ها از روز اول در مدل داده رزرو شده است."
       capabilities={[
-        "Secure broker API connections",
-        "Automatic fill synchronization",
-        "Account-level reconciliation",
-        "Multi-broker aggregation",
+        "اتصال امن با API کارگزاری",
+        "همگام‌سازی خودکار معاملات",
+        "تطبیق در سطح حساب",
+        "تجمیع چند کارگزاری",
       ]}
     />
   );

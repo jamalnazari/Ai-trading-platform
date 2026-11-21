@@ -106,7 +106,7 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <div className="flex flex-col gap-3 border-b border-white/6 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative w-full sm:max-w-xs">
           <Search
-            className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-zinc-600"
+            className="pointer-events-none absolute top-1/2 start-3 size-4 -translate-y-1/2 text-zinc-600"
             aria-hidden
           />
           <Input
@@ -115,9 +115,9 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
               setQuery(event.target.value);
               setPage(1);
             }}
-            placeholder="Search name, username, email…"
-            aria-label="Search users"
-            className="pl-9"
+            placeholder="جستجوی نام، نام کاربری، ایمیل…"
+            aria-label="جستجوی کاربران"
+            className="ps-9"
           />
         </div>
         <div className="flex items-center gap-3">
@@ -127,13 +127,13 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
               setStatusFilter(event.target.value as "all" | UserStatus);
               setPage(1);
             }}
-            aria-label="Filter by status"
+            aria-label="فیلتر بر اساس وضعیت"
             className="w-36"
           >
-            <option value="all">All statuses</option>
-            <option value="active">Active</option>
-            <option value="invited">Invited</option>
-            <option value="suspended">Suspended</option>
+            <option value="all">همه وضعیت‌ها</option>
+            <option value="active">فعال</option>
+            <option value="invited">دعوت‌شده</option>
+            <option value="suspended">معلق</option>
           </Select>
           <Button
             variant="primary"
@@ -141,7 +141,7 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
             onClick={() => setDialog({ mode: "add" })}
           >
             <Plus className="size-4" aria-hidden />
-            Add User
+            افزودن کاربر
           </Button>
         </div>
       </div>
@@ -150,13 +150,13 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <Table>
         <thead>
           <tr>
-            <Th className="pl-4">ID</Th>
-            <Th>Name</Th>
-            <Th>Username</Th>
-            <Th>Email</Th>
-            <Th>Status</Th>
-            <Th>Created</Th>
-            <Th className="pr-4 text-right">Actions</Th>
+            <Th className="ps-4">شناسه</Th>
+            <Th>نام</Th>
+            <Th>نام کاربری</Th>
+            <Th>ایمیل</Th>
+            <Th>وضعیت</Th>
+            <Th>تاریخ عضویت</Th>
+            <Th className="pe-4 text-end">عملیات</Th>
           </tr>
         </thead>
         <tbody>
@@ -166,13 +166,13 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
                 colSpan={7}
                 className="border-b border-white/5 px-4 py-16 text-center text-sm text-zinc-500"
               >
-                No users match your search.
+                هیچ کاربری با این جستجو پیدا نشد.
               </td>
             </tr>
           ) : (
             pageItems.map((user) => (
               <Tr key={user.id}>
-                <Td className="pl-4 font-mono text-xs text-zinc-500">
+                <Td dir="ltr" className="ps-4 text-left font-mono text-xs text-zinc-500">
                   {user.id}
                 </Td>
                 <Td>
@@ -183,23 +183,25 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
                     </span>
                   </span>
                 </Td>
-                <Td className="font-mono text-xs text-zinc-400">
+                <Td dir="ltr" className="text-right font-mono text-xs text-zinc-400">
                   @{user.username}
                 </Td>
-                <Td className="text-zinc-400">{user.email}</Td>
+                <Td dir="ltr" className="text-right text-zinc-400">
+                  {user.email}
+                </Td>
                 <Td>
                   <StatusBadge status={user.status} />
                 </Td>
                 <Td className="text-zinc-400 tabular-nums">
                   {formatDate(user.createdAt)}
                 </Td>
-                <Td className="pr-4">
+                <Td className="pe-4">
                   <span className="flex items-center justify-end gap-1">
                     <button
                       type="button"
                       onClick={() => setDialog({ mode: "view", user })}
-                      aria-label={`View ${user.name}`}
-                      title="View"
+                      aria-label={`مشاهده ${user.name}`}
+                      title="مشاهده"
                       className="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       <Eye className="size-4" aria-hidden />
@@ -207,8 +209,8 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
                     <button
                       type="button"
                       onClick={() => setDialog({ mode: "edit", user })}
-                      aria-label={`Edit ${user.name}`}
-                      title="Edit"
+                      aria-label={`ویرایش ${user.name}`}
+                      title="ویرایش"
                       className="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       <Pencil className="size-4" aria-hidden />
@@ -216,8 +218,8 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
                     <button
                       type="button"
                       onClick={() => setDialog({ mode: "delete", user })}
-                      aria-label={`Delete ${user.name}`}
-                      title="Delete"
+                      aria-label={`حذف ${user.name}`}
+                      title="حذف"
                       className="rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       <Trash2 className="size-4" aria-hidden />
@@ -242,34 +244,36 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <Dialog
         open={dialog?.mode === "view"}
         onClose={() => setDialog(null)}
-        title="User details"
+        title="جزئیات کاربر"
         description={dialog?.mode === "view" ? dialog.user.id : undefined}
         footer={
           <Button variant="secondary" size="md" onClick={() => setDialog(null)}>
-            Close
+            بستن
           </Button>
         }
       >
         {dialog?.mode === "view" ? (
           <dl className="grid grid-cols-[100px_1fr] gap-x-4 gap-y-3 text-sm">
-            <dt className="text-zinc-500">Name</dt>
+            <dt className="text-zinc-500">نام</dt>
             <dd className="text-zinc-200">{dialog.user.name}</dd>
-            <dt className="text-zinc-500">Username</dt>
-            <dd className="font-mono text-xs text-zinc-300">
+            <dt className="text-zinc-500">نام کاربری</dt>
+            <dd dir="ltr" className="text-left font-mono text-xs text-zinc-300">
               @{dialog.user.username}
             </dd>
-            <dt className="text-zinc-500">Email</dt>
-            <dd className="text-zinc-300">{dialog.user.email}</dd>
-            <dt className="text-zinc-500">Status</dt>
+            <dt className="text-zinc-500">ایمیل</dt>
+            <dd dir="ltr" className="text-left text-zinc-300">
+              {dialog.user.email}
+            </dd>
+            <dt className="text-zinc-500">وضعیت</dt>
             <dd>
               <StatusBadge status={dialog.user.status} />
             </dd>
-            <dt className="text-zinc-500">Created</dt>
+            <dt className="text-zinc-500">تاریخ عضویت</dt>
             <dd className="text-zinc-300 tabular-nums">
               {formatDate(dialog.user.createdAt)}
             </dd>
-            <dt className="text-zinc-500">Role</dt>
-            <dd className="text-zinc-300">Member</dd>
+            <dt className="text-zinc-500">نقش</dt>
+            <dd className="text-zinc-300">عضو</dd>
           </dl>
         ) : null}
       </Dialog>
@@ -278,14 +282,14 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <Dialog
         open={dialog?.mode === "edit"}
         onClose={() => setDialog(null)}
-        title="Edit user"
+        title="ویرایش کاربر"
         description={
-          dialog?.mode === "edit" ? `Editing ${dialog.user.name}` : undefined
+          dialog?.mode === "edit" ? `در حال ویرایش ${dialog.user.name}` : undefined
         }
         footer={
           <>
             <Button variant="secondary" size="md" onClick={() => setDialog(null)}>
-              Cancel
+              انصراف
             </Button>
             <Button
               variant="primary"
@@ -293,7 +297,7 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
               type="submit"
               form="edit-user-form"
             >
-              Save changes
+              ذخیره تغییرات
             </Button>
           </>
         }
@@ -307,39 +311,43 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
           >
             <div className="flex flex-col gap-1.5">
               <label htmlFor="edit-name" className="text-sm font-medium text-zinc-300">
-                Name
+                نام
               </label>
               <Input id="edit-name" name="name" defaultValue={dialog.user.name} />
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="edit-username" className="text-sm font-medium text-zinc-300">
-                Username
+                نام کاربری
               </label>
               <Input
                 id="edit-username"
                 name="username"
+                dir="ltr"
+                className="text-start"
                 defaultValue={dialog.user.username}
               />
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="edit-email" className="text-sm font-medium text-zinc-300">
-                Email
+                ایمیل
               </label>
               <Input
                 id="edit-email"
                 name="email"
                 type="email"
+                dir="ltr"
+                className="text-start"
                 defaultValue={dialog.user.email}
               />
             </div>
             <div className="flex flex-col gap-1.5">
               <label htmlFor="edit-status" className="text-sm font-medium text-zinc-300">
-                Status
+                وضعیت
               </label>
               <Select id="edit-status" name="status" defaultValue={dialog.user.status}>
-                <option value="active">Active</option>
-                <option value="invited">Invited</option>
-                <option value="suspended">Suspended</option>
+                <option value="active">فعال</option>
+                <option value="invited">دعوت‌شده</option>
+                <option value="suspended">معلق</option>
               </Select>
             </div>
           </form>
@@ -350,12 +358,12 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <Dialog
         open={dialog?.mode === "delete"}
         onClose={() => setDialog(null)}
-        title="Delete user"
+        title="حذف کاربر"
         className="max-w-sm"
         footer={
           <>
             <Button variant="secondary" size="md" onClick={() => setDialog(null)}>
-              Cancel
+              انصراف
             </Button>
             <Button
               variant="danger"
@@ -364,7 +372,7 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
                 dialog?.mode === "delete" && handleDelete(dialog.user.id)
               }
             >
-              Delete
+              حذف
             </Button>
           </>
         }
@@ -375,11 +383,11 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
               <TriangleAlert className="size-4" aria-hidden />
             </span>
             <p className="text-sm leading-relaxed text-zinc-400">
-              Are you sure you want to delete{" "}
+              آیا از حذف{" "}
               <span className="font-medium text-zinc-200">
                 {dialog.user.name}
               </span>{" "}
-              ({dialog.user.email})? This action cannot be undone.
+              ({dialog.user.email}) مطمئن هستید؟ این عملیات قابل بازگشت نیست.
             </p>
           </div>
         ) : null}
@@ -389,12 +397,12 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
       <Dialog
         open={dialog?.mode === "add"}
         onClose={() => setDialog(null)}
-        title="Add user"
-        description="Create a member account. Invitations are sent by the administrator."
+        title="افزودن کاربر"
+        description="ایجاد حساب عضو. دعوت‌نامه‌ها توسط مدیر ارسال می‌شود."
         footer={
           <>
             <Button variant="secondary" size="md" onClick={() => setDialog(null)}>
-              Cancel
+              انصراف
             </Button>
             <Button
               variant="primary"
@@ -402,7 +410,7 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
               type="submit"
               form="add-user-form"
             >
-              Create user
+              ایجاد کاربر
             </Button>
           </>
         }
@@ -414,41 +422,45 @@ export function UsersTable({ initialUsers }: { initialUsers: AdminUser[] }) {
         >
           <div className="flex flex-col gap-1.5">
             <label htmlFor="add-name" className="text-sm font-medium text-zinc-300">
-              Name
+              نام
             </label>
-            <Input id="add-name" name="name" placeholder="Jane Cooper" required />
+            <Input id="add-name" name="name" placeholder="مریم احمدی" required />
           </div>
           <div className="flex flex-col gap-1.5">
             <label htmlFor="add-username" className="text-sm font-medium text-zinc-300">
-              Username
+              نام کاربری
             </label>
             <Input
               id="add-username"
               name="username"
-              placeholder="jane.cooper"
+              dir="ltr"
+              className="text-start"
+              placeholder="maryam.ahmadi"
               required
             />
           </div>
           <div className="flex flex-col gap-1.5">
             <label htmlFor="add-email" className="text-sm font-medium text-zinc-300">
-              Email
+              ایمیل
             </label>
             <Input
               id="add-email"
               name="email"
               type="email"
-              placeholder="jane@example.com"
+              dir="ltr"
+              className="text-start"
+              placeholder="maryam@example.com"
               required
             />
           </div>
           <div className="flex flex-col gap-1.5">
             <label htmlFor="add-status" className="text-sm font-medium text-zinc-300">
-              Status
+              وضعیت
             </label>
             <Select id="add-status" name="status" defaultValue="invited">
-              <option value="invited">Invited</option>
-              <option value="active">Active</option>
-              <option value="suspended">Suspended</option>
+              <option value="invited">دعوت‌شده</option>
+              <option value="active">فعال</option>
+              <option value="suspended">معلق</option>
             </Select>
           </div>
         </form>

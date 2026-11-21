@@ -4,6 +4,9 @@
  * Every dashboard page reads from this module. When a real backend is
  * connected (e.g. Supabase), replace the exported objects with queries
  * — the shapes below are the contract the UI depends on.
+ *
+ * Display strings are Persian (the UI language); data keys, names,
+ * emails and IDs stay Latin on purpose.
  */
 
 export type UserStatus = "active" | "invited" | "suspended";
@@ -56,23 +59,23 @@ export const visitsLast30Days: number[] = [
 /** Static headline metrics derived from the series above. */
 export const analytics = {
   totalVisits: 18452,
-  totalVisitsDelta: "+12.4%",
+  totalVisitsDelta: "+۱۲٫۴٪",
   todayVisits: visitsLast30Days[visitsLast30Days.length - 1],
   weekVisits: visitsLast30Days.slice(-7).reduce((a, b) => a + b, 0),
   monthVisits: visitsLast30Days.reduce((a, b) => a + b, 0),
   uploadedStatements: 342,
-  uptime: "99.98%",
+  uptime: "۹۹٫۹۸٪",
 };
 
-/** Visits by weekday (Mon–Sun) for the bar chart. */
+/** Visits by weekday (Sat–Fri — the Persian week) for the bar chart. */
 export const visitsByWeekday = [
-  { label: "Mon", value: 720 },
-  { label: "Tue", value: 795 },
-  { label: "Wed", value: 812 },
-  { label: "Thu", value: 768 },
-  { label: "Fri", value: 690 },
-  { label: "Sat", value: 348 },
-  { label: "Sun", value: 302 },
+  { label: "شنبه", value: 580 },
+  { label: "یکشنبه", value: 720 },
+  { label: "دوشنبه", value: 795 },
+  { label: "سه‌شنبه", value: 812 },
+  { label: "چهارشنبه", value: 768 },
+  { label: "پنجشنبه", value: 690 },
+  { label: "جمعه", value: 348 },
 ];
 
 export const topPages = [
@@ -99,14 +102,14 @@ export interface ActivityItem {
 }
 
 export const recentActivity: ActivityItem[] = [
-  { type: "signup", message: "New user registered", detail: "Kenji Watanabe joined via invitation", time: "2 minutes ago" },
-  { type: "upload", message: "Statement uploaded", detail: "Q3_broker_export.pdf · 1.2 MB", time: "18 minutes ago" },
-  { type: "signin", message: "Sign-in from a new device", detail: "203.0.113.24 · Tokyo, JP", time: "1 hour ago" },
-  { type: "settings", message: "Settings updated", detail: "Maintenance mode disabled", time: "3 hours ago" },
-  { type: "signup", message: "New user registered", detail: "Priya Sharma joined via invitation", time: "5 hours ago" },
-  { type: "upload", message: "Statement uploaded", detail: "october_trades.csv · 84 KB", time: "8 hours ago" },
-  { type: "report", message: "Weekly analytics report generated", detail: "Week 46 · 1,249 visits", time: "1 day ago" },
-  { type: "signup", message: "New user registered", detail: "Lucas Meyer joined via invitation", time: "2 days ago" },
+  { type: "signup", message: "کاربر جدید ثبت‌نام کرد", detail: "Kenji Watanabe با دعوت‌نامه عضو شد", time: "۲ دقیقه پیش" },
+  { type: "upload", message: "صورت‌حساب جدید بارگذاری شد", detail: "Q3_broker_export.pdf · ۱٫۲ مگابایت", time: "۱۸ دقیقه پیش" },
+  { type: "signin", message: "ورود از دستگاه جدید", detail: "203.0.113.24 · توکیو، ژاپن", time: "۱ ساعت پیش" },
+  { type: "settings", message: "تنظیمات به‌روزرسانی شد", detail: "حالت تعمیر و نگهداری غیرفعال شد", time: "۳ ساعت پیش" },
+  { type: "signup", message: "کاربر جدید ثبت‌نام کرد", detail: "Priya Sharma با دعوت‌نامه عضو شد", time: "۵ ساعت پیش" },
+  { type: "upload", message: "صورت‌حساب جدید بارگذاری شد", detail: "october_trades.csv · ۸۴ کیلوبایت", time: "۸ ساعت پیش" },
+  { type: "report", message: "گزارش هفتگی تحلیل‌ها تولید شد", detail: "هفته ۴۶ · ۱٬۲۴۹ بازدید", time: "۱ روز پیش" },
+  { type: "signup", message: "کاربر جدید ثبت‌نام کرد", detail: "Lucas Meyer با دعوت‌نامه عضو شد", time: "۲ روز پیش" },
 ];
 
 export interface VisitorRow {
@@ -119,12 +122,12 @@ export interface VisitorRow {
 }
 
 export const recentVisitors: VisitorRow[] = [
-  { ip: "203.0.113.24", city: "Tokyo", country: "JP", path: "/pricing", browser: "Chrome 141 · macOS", time: "12 min ago" },
-  { ip: "198.51.100.7", city: "San Francisco", country: "US", path: "/features", browser: "Safari 18 · iPadOS", time: "26 min ago" },
-  { ip: "192.0.2.146", city: "London", country: "GB", path: "/", browser: "Chrome 140 · Windows", time: "41 min ago" },
-  { ip: "203.0.113.88", city: "Singapore", country: "SG", path: "/roadmap", browser: "Firefox 133 · Linux", time: "1 hr ago" },
-  { ip: "198.51.100.62", city: "Berlin", country: "DE", path: "/features", browser: "Edge 131 · Windows", time: "2 hrs ago" },
-  { ip: "192.0.2.35", city: "Seoul", country: "KR", path: "/login", browser: "Chrome 141 · Android", time: "3 hrs ago" },
-  { ip: "203.0.113.101", city: "Sydney", country: "AU", path: "/", browser: "Safari 17 · macOS", time: "5 hrs ago" },
-  { ip: "198.51.100.19", city: "Toronto", country: "CA", path: "/pricing", browser: "Chrome 140 · iOS", time: "6 hrs ago" },
+  { ip: "203.0.113.24", city: "توکیو", country: "JP", path: "/pricing", browser: "Chrome 141 · macOS", time: "۱۲ دقیقه پیش" },
+  { ip: "198.51.100.7", city: "سان‌فرانسیسکو", country: "US", path: "/features", browser: "Safari 18 · iPadOS", time: "۲۶ دقیقه پیش" },
+  { ip: "192.0.2.146", city: "لندن", country: "GB", path: "/", browser: "Chrome 140 · Windows", time: "۴۱ دقیقه پیش" },
+  { ip: "203.0.113.88", city: "سنگاپور", country: "SG", path: "/roadmap", browser: "Firefox 133 · Linux", time: "۱ ساعت پیش" },
+  { ip: "198.51.100.62", city: "برلین", country: "DE", path: "/features", browser: "Edge 131 · Windows", time: "۲ ساعت پیش" },
+  { ip: "192.0.2.35", city: "سئول", country: "KR", path: "/login", browser: "Chrome 141 · Android", time: "۳ ساعت پیش" },
+  { ip: "203.0.113.101", city: "سیدنی", country: "AU", path: "/", browser: "Safari 17 · macOS", time: "۵ ساعت پیش" },
+  { ip: "198.51.100.19", city: "تورنتو", country: "CA", path: "/pricing", browser: "Chrome 140 · iOS", time: "۶ ساعت پیش" },
 ];

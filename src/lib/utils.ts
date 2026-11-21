@@ -6,19 +6,24 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-/** 12345 -> "12,345" (deterministic across server/client). */
+/** 12345 -> "۱۲٬۳۴۵" (fa-IR, Persian digits — deterministic). */
 export function formatNumber(value: number): string {
-  return new Intl.NumberFormat("en-US").format(value);
+  return new Intl.NumberFormat("fa-IR").format(value);
 }
 
-/** ISO date -> "Nov 21, 2026" (UTC — deterministic across server/client). */
+/** ISO date -> "۲۸ آبان ۱۴۰۵" (Jalali calendar, UTC — deterministic). */
 export function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "numeric",
+  return new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
     year: "numeric",
+    month: "long",
+    day: "numeric",
     timeZone: "UTC",
   }).format(new Date(iso));
+}
+
+/** Convert Latin digits inside a string/number to Persian digits. */
+export function faDigits(value: string | number): string {
+  return String(value).replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]);
 }
 
 /** "kenji.watanabe" -> "KW" */
@@ -29,10 +34,4 @@ export function initials(name: string): string {
     .slice(0, 2)
     .map((part) => part[0]!.toUpperCase())
     .join("");
-}
-
-/** "james.oconnor@…" -> "JO" — first letters of an email local part. */
-export function initialsFromEmail(email: string): string {
-  const local = email.split("@")[0] ?? "";
-  return initials(local.replace(/[._-]+/g, " "));
 }

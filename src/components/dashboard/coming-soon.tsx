@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonClasses } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -13,10 +13,10 @@ export interface ComingSoonProps {
 }
 
 /**
- * Shared placeholder for reserved future modules (AI Assistant, Trading
- * Memory, Price Alerts, Trading Agent, Broker Connections). When a module
- * ships, replace the import in its page file with the real page — the
- * route, navigation item and layout need no changes.
+ * Shared placeholder for reserved future modules (دستیار هوش مصنوعی،
+ * حافظه معاملاتی، هشدار قیمت، ایجنت معاملاتی، اتصالات کارگزاری). When a
+ * module ships, replace the import in its page file with the real page —
+ * the route, navigation item and layout need no changes.
  */
 export function ComingSoon({
   title,
@@ -34,10 +34,10 @@ export function ComingSoon({
 
         <div className="flex flex-col items-center gap-3">
           <Badge variant="soon">
-            {version} · On the roadmap
+            {version} · در نقشه راه
           </Badge>
-          <h2 className="text-3xl font-semibold tracking-tight text-zinc-50">
-            Coming Soon
+          <h2 className="text-3xl font-semibold text-zinc-50">
+            به‌زودی
           </h2>
           <p className="text-sm text-zinc-500">{title}</p>
         </div>
@@ -46,7 +46,7 @@ export function ComingSoon({
           {description}
         </p>
 
-        <ul className="w-full flex flex-col gap-2.5 text-left">
+        <ul className="w-full flex flex-col gap-2.5 text-start">
           {capabilities.map((capability) => (
             <li
               key={capability}
@@ -62,8 +62,8 @@ export function ComingSoon({
           href="/#roadmap"
           className={buttonClasses({ variant: "outline", size: "md" })}
         >
-          View the roadmap
-          <ArrowRight className="size-4" aria-hidden />
+          مشاهده نقشه راه
+          <ArrowLeft className="size-4" aria-hidden />
         </Link>
       </Card>
     </div>

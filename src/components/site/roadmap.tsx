@@ -14,33 +14,33 @@ interface RoadmapVersion {
 
 const versions: RoadmapVersion[] = [
   {
-    version: "Version 1",
-    status: "Live now",
+    version: "نسخه ۱",
+    status: "همین حالا",
     statusVariant: "accent",
-    title: "Foundations",
+    title: "پایه‌ها",
     live: true,
-    items: ["Trading Journal", "Statement Upload", "Dashboard"],
+    items: ["ژورنال معاملاتی", "بارگذاری صورت‌حساب", "داشبورد"],
   },
   {
-    version: "Version 2",
-    status: "Planned",
+    version: "نسخه ۲",
+    status: "در برنامه",
     statusVariant: "outline",
-    title: "AI Analysis",
-    items: ["Trade pattern detection", "Bias & risk review"],
+    title: "تحلیل هوش مصنوعی",
+    items: ["تشخیص الگوهای معاملاتی", "بررسی سوگیری و ریسک"],
   },
   {
-    version: "Version 3",
-    status: "Planned",
+    version: "نسخه ۳",
+    status: "در برنامه",
     statusVariant: "outline",
-    title: "Price Monitoring",
-    items: ["Price charts", "Custom alerts"],
+    title: "پایش قیمت",
+    items: ["نمودار قیمت", "هشدارهای سفارشی"],
   },
   {
-    version: "Version 4",
-    status: "Exploring",
+    version: "نسخه ۴",
+    status: "در حال بررسی",
     statusVariant: "soon",
-    title: "Trading Agent",
-    items: ["Autonomous review agent", "Broker connections"],
+    title: "ایجنت معاملاتی",
+    items: ["ایجنت مرور خودکار", "اتصالات کارگزاری"],
   },
 ];
 
@@ -49,16 +49,16 @@ export function Roadmap() {
     <section id="roadmap" className="scroll-mt-16 border-t border-white/6">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
-          eyebrow="Roadmap"
-          title="Built in the open, version by version"
-          lede="Each release stands on its own and is useful on day one. Nothing is redesigned to add what comes next."
+          eyebrow="نقشه راه"
+          title="نسخه به نسخه، با تمرکز ساخته می‌شود"
+          lede="هر نسخه به‌تنهایی کامل و از روز اول مفید است. برای افزودن ادامه مسیر، هیچ‌چیز بازطراحی نمی‌شود."
         />
 
         <div className="relative mt-16">
           {/* connector line (desktop) */}
           <div
             aria-hidden
-            className="absolute inset-x-0 top-[5px] hidden h-px bg-gradient-to-r from-transparent via-white/15 to-transparent md:block"
+            className="absolute inset-x-0 top-[5px] hidden h-px bg-gradient-to-l from-transparent via-white/15 to-transparent md:block"
           />
 
           <ol className="grid gap-10 md:grid-cols-4 md:gap-4">
@@ -80,12 +80,12 @@ export function Roadmap() {
                   )}
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-medium tracking-wider text-zinc-500 uppercase">
+                    <span className="text-xs font-medium text-zinc-500">
                       {entry.version}
                     </span>
                     <Badge variant={entry.statusVariant}>{entry.status}</Badge>
                   </div>
-                  <h3 className="text-lg font-semibold tracking-tight text-zinc-100">
+                  <h3 className="text-lg font-semibold text-zinc-100">
                     {entry.title}
                   </h3>
                   <ul className="flex flex-col gap-2.5">
